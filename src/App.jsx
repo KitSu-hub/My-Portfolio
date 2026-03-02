@@ -6,8 +6,8 @@ import './App.css';
 ═══════════════════════════════════════════════════════════ */
 const handleResumeDownload = () => {
     const link = document.createElement('a');
-    link.href = `/Resume.pdf`;
-    link.download = 'sai_Krishna_Reddy_Bollampally_Resume.pdf';
+    link.href = `/sai_Krishna_Reddy_Bollampally_Resume.docx`;
+    link.download = 'sai_Krishna_Reddy_Bollampally_Resume.docx';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

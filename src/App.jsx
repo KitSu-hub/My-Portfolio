@@ -4,6 +4,15 @@ import './App.css';
 /* ═══════════════════════════════════════════════════════════
     DATA
 ═══════════════════════════════════════════════════════════ */
+const handleResumeDownload = () => {
+    const link = document.createElement('a');
+    link.href = `/Resume.pdf`;
+    link.download = 'sai_Krishna_Reddy_Bollampally_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
 const EDUCATION = [
   {
     degree: 'Master of Science in Computer Science',
@@ -25,38 +34,39 @@ const EDUCATION = [
   },
 ];
 
+
 const CERTIFICATIONS = [
   // Job Simulations
-  { id: 'c01', title: 'Deloitte Data Analytics Job Simulation', issuer: 'Deloitte', category: 'Job Simulations', link: '#' },
+  { id: 'c01', title: 'Deloitte Data Analytics Job Simulation', issuer: 'Deloitte', category: 'Job Simulations', link: `pdf/Deloitte_Data_Analytics_Job_Simulation.pdf` },
 
   // AI / ML
-  { id: 'c02', title: 'Prompt Design in Vertex AI', issuer: 'Google Cloud', category: 'AI/ML', link: '#' },
-  { id: 'c03', title: 'AI for All From Basics to Gen AI Practice', issuer: 'NVIDIA', category: 'AI/ML', link: '#' },
+  { id: 'c02', title: 'Prompt Design in Vertex AI', issuer: 'Google Cloud', category: 'AI/ML', link: `pdf/prompt-design-in-vertex-ai.png` },
+  { id: 'c03', title: 'AI for All From Basics to Gen AI Practice', issuer: 'NVIDIA', category: 'AI/ML', link: `pdf/AI for All From Basics to Gen AI Practice.pdf` },
   { id: 'c04', title: 'Finetuning Large Language Models', issuer: 'Deeplearning.ai', category: 'AI/ML', link: 'https://learn.deeplearning.ai/accomplishments/804d859c-fc43-46b0-a6f4-9e582ed724bc?usp=sharing' },
   { id: 'c05', title: 'Introduction to generative AI concepts', issuer: 'Microsoft', category: 'AI/ML', link: 'https://learn.microsoft.com/en-us/users/saikrishnareddybollampally-8498/achievements/8zqne6fw' },
-  { id: 'c06', title: 'Develop applications with Azure OpenAI in Foundry Models', issuer: 'Microsoft', category: 'AI/ML', link: '#' },
-  { id: 'c07', title: 'Inroduction to Generative AI- Art of the Possible', issuer: 'Amazon Web Services', category: 'AI/ML', link: '#' },
-  { id: 'c08', title: 'Create Your Own ChatGPT-like Website with Open Source LLMs', issuer: 'Cognitive Class', category: 'AI/ML', link: '#' },
+  { id: 'c06', title: 'Develop applications with Azure OpenAI in Foundry Models', issuer: 'Microsoft', category: 'AI/ML', link: `pdf/Develop applications with Azure OpenAI in Foundry Models.pdf` },
+  { id: 'c07', title: 'Inroduction to Generative AI- Art of the Possible', issuer: 'Amazon Web Services', category: 'AI/ML', link: `pdf/Introduction to Generative AI - Art of the Possible.pdf` },
+  { id: 'c08', title: 'Create Your Own ChatGPT-like Website with Open Source LLMs', issuer: 'Cognitive Class', category: 'AI/ML', link: `pdf/Create Your Own ChatGPT-like Website with Open.pdf` },
 
   // Data Analysis
-  { id: 'c09', title: 'Get started building with Power BI', issuer: 'Microsoft', category: 'Data Analysis', link: '#' },
+  { id: 'c09', title: 'Get started building with Power BI', issuer: 'Microsoft', category: 'Data Analysis', link: `pdf/Get started building with Power BI.pdf` },
 
   // DevOps & Cloud
-  { id: 'c10', title: 'Getting Started with DevOps', issuer: 'Amazon Web Services', category: 'DevOps & Cloud', year: '2023', credential: 'AWS-CPF-2023', link: '#' },
-  { id: 'c11', title: 'AWS Cloud Practitioner Essentials', issuer: 'Amazon Web Services', category: 'DevOps & Cloud', link: '#' },
-  { id: 'c12', title: 'Docker Essentials: A Developer Introduction', issuer: 'Cognitive Class', category: 'DevOps & Cloud', link: '#' },
+  { id: 'c10', title: 'Getting Started with DevOps', issuer: 'Amazon Web Services', category: 'DevOps & Cloud', year: '2023', credential: 'AWS-CPF-2023', link: `pdf/Getting Started with DevOps on AWS.pdf` },
+  { id: 'c11', title: 'AWS Cloud Practitioner Essentials', issuer: 'Amazon Web Services', category: 'DevOps & Cloud', link: `pdf/AWS Cloud Practitioner Essentials.pdf` },
+  { id: 'c12', title: 'Docker Essentials: A Developer Introduction', issuer: 'Cognitive Class', category: 'DevOps & Cloud', link: `pdf/Docker Essentials.pdf` },
 
   // WEB DEV
-  { id: 'c13', title: 'Full Stack Web Development with MERN STACK & GenAI 2025', issuer: 'Udemy', category: 'Web Development', year: '2023', credential: 'AWS-CPF-2023', link: '#' },
-  { id: 'c14', title: 'Spring Boot Course: Certified Course for Essential Skills', issuer: 'Scaler', category: 'Web Development', link: '#' },
+  { id: 'c13', title: 'Full Stack Web Development with MERN STACK & GenAI 2025', issuer: 'Udemy', category: 'Web Development', year: '2023', credential: 'AWS-CPF-2023', link: `pdf/Full Stack Web Development with MERN STACK & Gen AI 2025.pdf` },
+  { id: 'c14', title: 'Spring Boot Course: Certified Course for Essential Skills', issuer: 'Scaler', category: 'Web Development', link: `pdf/SpringBoot.png` },
 
   // Other
-  { id: 'c15', title: 'Step into Robotic Process Automation', issuer: 'GUVI', category: 'Other',  link: '#' },
-  { id: 'c16', title: 'Game Development using PyGame', issuer: 'GUVI', category: 'Other', link: '#' },
-  { id: 'c17', title: 'Programming Essentials in C', issuer: 'Cisco', category: 'Other', link: '#' },
-  { id: 'c18', title: 'Programming Essentials in Python', issuer: 'Cisco', category: 'Other', link: '#' },
-  { id: 'c19', title: 'Algorithms, Data Collection, and Starting to Code', issuer: 'Coursera', category: 'Other', link: '#' },
-  { id: 'c20', title: 'Build a Face Recognition Application Using Python', issuer: 'Guvi', category: 'Other', link: '#' },
+  { id: 'c15', title: 'Step into Robotic Process Automation', issuer: 'GUVI', category: 'Other',  link: `pdf/Step into Robotic Process Automation.png` },
+  { id: 'c16', title: 'Game Development using PyGame', issuer: 'GUVI', category: 'Other', link: `pdf/Game Development using PyGame.png` },
+  { id: 'c17', title: 'Programming Essentials in C', issuer: 'Cisco', category: 'Other', link: `pdf/Programming Essentials in C.pdf` },
+  { id: 'c18', title: 'Programming Essentials in Python', issuer: 'Cisco', category: 'Other', link: `pdf/Programming Essentials in Python.pdf` },
+  { id: 'c19', title: 'Algorithms, Data Collection, and Starting to Code', issuer: 'Coursera', category: 'Other', link: `pdf/Algorithms, Data Collection, and Starting to Code.pdf` },
+  { id: 'c20', title: 'Build a Face Recognition Application Using Python', issuer: 'Guvi', category: 'Other', link: `pdf/Build a Face Recognition Application Using Python.png` },
 ];
 
 const CERT_TABS = ['All', 'Job Simulations', 'AI/ML', 'Data Analysis', 'DevOps & Cloud', 'Web Development','Other'];
@@ -243,9 +253,9 @@ function Navbar() {
         {NAV.map(id => <button key={id} className="nav__link" onClick={() => go(id)}>{id}</button>)}
       </div>
       <div className="nav__right">
-        <a href="#" className="nav__icon"><LI /></a>
+        <a href="https://www.linkedin.com/in/sai-krishnab202/" target="_blank" rel="noopener noreferrer" className="nav__icon"><LI /></a>
         {/* <a href="#" className="nav__icon"><GH /></a> */}
-        <button className="nav__resume">Resume ↗</button>
+        <button onClick={handleResumeDownload} className="nav__resume"> Resume ↗</button>
         <button className="nav__burger" onClick={() => setOpen(o => !o)}>
           <span style={{ transform: open ? 'rotate(45deg) translate(4px,4px)' : 'none' }} />
           <span style={{ opacity: open ? 0 : 1 }} />
@@ -376,8 +386,8 @@ function About() {
           <p className="about__body">I'm an AI/ML Engineer passionate about the full lifecycle — from research prototypes to battle-hardened production systems. I've spent 3+ years building things that matter: RAG pipelines, autonomous agents, computer vision systems, and real-time ML infrastructure.</p>
           <p className="about__body mt">I care deeply about systems that are not just accurate, but fast, explainable, and maintainable. I don't just build models — I build platforms.</p>
           <div className="about__ctas">
-            <a href="#" className="btn btn--solid btn--sm">Download CV ↓</a>
-            <a href="#" className="about__link"><LI /> Connect on LinkedIn</a>
+            <a href="#" onClick={handleResumeDownload} className="btn btn--solid btn--sm">Download CV ↓</a>
+            <a href="https://www.linkedin.com/in/sai-krishnab202/" target="_blank" rel="noopener noreferrer" className="about__link"><LI /> Connect on LinkedIn</a>
           </div>
         </div>
         <div className="about__right">
@@ -582,7 +592,7 @@ function Education() {
               <div className="cert__issuer">{c.issuer}</div>
               <div className="cert__footer">
                 <span className="cert__id">#{c.credential}</span>
-                <a href={c.link} className="cert__link" aria-label="View certificate">
+                <a href={c.link} target='_blank' rel="noreferrer" className="cert__link" aria-label="View certificate">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
                     <polyline points="15 3 21 3 21 9"/>
@@ -669,7 +679,7 @@ function Footer() {
         <span className="footer__logo">SK</span>
         <span className="footer__copy">© 2026 Sai Bollampally. All rights reserved.</span>
         <div className="footer__socials">
-          <a href="https://www.linkedin.com/in/sai-krishnab202/" className="footer__social"><LI /></a>
+          <a href="https://www.linkedin.com/in/sai-krishnab202/" target="_blank" rel="noopener noreferrer" className="footer__social"><LI /></a>
           {/* <a href="#" className="footer__social"><GH /></a>
           <a href="#" className="footer__social"><XX /></a> */}
         </div>
